@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Dodawanie</h1>
+
+<form th:object="${newCat}" th:action="@{/cats}" method="post">
+    Color:<br>
+    <input type="text" name="color" th:field="*{color}"><br>
+    Name:<br>
+    <input type="text" name="name" th:field="*{name}"><br>
+    Breed:<br>
+    <input type="text" name="breed" th:field="*{breed}"><br>
+    <input type="submit" value="add new cat">
+</form>
+
+<h1>Usuwanie</h1>
+
+<form th:object="${newCat}" th:action="@{/remove-cat}" method="post">
+    Name:<br>
+    <input type="text" name="name" th:field="*{name}"><br>
+    <input type="submit" value="remove cat">
+
+
+<h1>Wypisywanie</h1>
+
+<tr th:each="cat: ${catListModel}">
+
+    <td th:text="${cat.getName()}"></td>
+    <br>
+    <td th:text="${cat.getBreed()}"></td>
+    <br>
+    <td th:text="${cat.getColor()}"></td>
+    <br>
+    <p>==================================</p><br>
+</tr>
+
+
+</body>
+</html>

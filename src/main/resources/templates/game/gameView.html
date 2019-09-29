@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p th:text="${random}"></p>
+
+<h1> Get Your Number </h1>
+<form th:object="${numberFromUser}" th:action="@{/game}" method="post">
+    <p>value: <input type="text" th:field="*{userValue}"></p>
+    <p><input type="submit" value="check!"></p>
+</form>
+<p th:text="${result}"/>
+
+</body>
+</html>
